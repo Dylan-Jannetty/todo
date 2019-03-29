@@ -1,0 +1,33 @@
+<main>
+  <div class="header">Get Your Shit Done</div>
+  <div class="todo-wrapper">
+    <h2><span class="emphasis" ng-bind="todo.getTotalTodos()"></span> Things To Do</h2>
+    <form>
+      <input class="add-input" placeholder="I need to..." type="text" ng-model="todo.formTodoText" ng-model-instant />
+      <i class="fa fa-check" aria-hidden="true"ng-click="todo.addTodo()" ng-if="todo.formTodoText"></i>
+    </form>
+    <ul>
+      <li class="task-list" ng-repeat="task in todo.todos">
+        <div class="task"> 
+          <div class="task-text" ng-bind="task.text" ng-model="todo.editableText"></div>
+          <span class="options">
+            <a href="#" ng-click="boxShow=!boxShow">
+              <button class="fa fa-info-circle" aria-hidden="true">I</button>
+            </a>
+  
+            <button class="fa fa-pencil" ng-click="todo.enableEditor(task)">EDIT</button>
+            <span class="x" ng-click="todo.deleteItem(task)"><i class="fa fa-ban" aria-hidden="true"></i></span>
+          </span>
+          <div ng-show="boxShow">
+            <textarea rows="4" cols="40" placeholder="Write notes of your task here.."></textarea>
+            <a href="#" ng-click="boxShow=!boxShow">Close</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div ng-if="todo.todos.length == 0" class="empty-message">
+      <h3>You Probably Have Some Stuff To Do..</h3>
+      <img class="empty-img" ng-src="http://cdn.firstwefeast.com/assets/2015/03/kermit-meme-112414png_1qq16n1pph2ky139ki81oqxxiw.png" alt="">
+    </div>
+  </div>
+</main>
