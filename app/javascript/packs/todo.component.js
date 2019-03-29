@@ -1,9 +1,11 @@
 import TodoController from './todo.controller';
+import template from './todo.html';
+import './todo.scss';
 
 const TodoComponent = {
   controller: TodoController,
   controllerAs: 'todo',
-  template: `<div ng-repeat="task in todo.tasks"><h2>{{task.title}}{{task.description}}</h2></div>`
+  template: template
 }
 
 export default TodoComponent;

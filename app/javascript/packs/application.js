@@ -22,11 +22,12 @@ import TodoComponent from './todo.component';
 
 const todo = angular.module('todo', [uirouter])
   .component('todoComponent', TodoComponent)
-  .config(($stateProvider) => {
+  .config(($stateProvider, $urlRouterProvider) => {
+    $urlRouterProvider.otherwise("/");
     $stateProvider
       .state('todo', {
         url: '/',
-        component: 'todoComponent'
+        component: 'todoComponent',
       })
   })
 
